@@ -22,7 +22,7 @@ $bot->onCommand('start', function (Nutgram $bot) {
 })->description('The start command!');
 
 $bot->onCommand('whoami', function (Nutgram $bot) {
-    $bot->sendMessage('You are: '.$bot->chat()->id);
+    $bot->sendMessage('You are: '.$bot->user()->id);
 });
 //    ->middleware(AuthorizeTelegramUser::class);
 
@@ -34,6 +34,11 @@ $bot->onCommand('refund {email}', function (Nutgram $bot,string $email) {
     }
     $bot->sendMessage("done.");
 })->description('The refund command!');
+
+
+$bot->onText('{text}', function (Nutgram $bot, string $text) {
+    $bot->sendMessage("echo: $text");
+});
 
 $bot->fallback(function (Nutgram $bot) {
     $bot->sendMessage('Sorry, i didn\'t get that, try /start');

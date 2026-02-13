@@ -2,4 +2,7 @@
 use SergiX44\Nutgram\Nutgram;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/webhook', fn (Nutgram $bot) => $bot->run());
+Route::post('/webhook', function (Nutgram $bot){
+    $bot->run();
+    return response()->json(['ok' => true]);
+});
