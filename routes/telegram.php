@@ -15,7 +15,7 @@ use SergiX44\Nutgram\Nutgram;
 |
 */
 
-$bot->middleware(AuthorizeTelegramUser::class);
+//$bot->middleware(AuthorizeTelegramUser::class);
 
 $bot->onCommand('start', function (Nutgram $bot) {
     $bot->sendMessage('What is up!');
