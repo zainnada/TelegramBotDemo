@@ -4,5 +4,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/webhook', function (Nutgram $bot){
     $bot->run();
-    return response()->json(['ok' => true]);
+//    return response()->json(['ok' => true]);
 });

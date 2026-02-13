@@ -15,7 +15,7 @@ use SergiX44\Nutgram\Nutgram;
 |
 */
 
-//$bot->middleware(AuthorizeTelegramUser::class);
+$bot->middleware(AuthorizeTelegramUser::class);
 
 $bot->onCommand('start', function (Nutgram $bot) {
     $bot->sendMessage('What is up!');
@@ -36,9 +36,9 @@ $bot->onCommand('refund {email}', function (Nutgram $bot,string $email) {
 })->description('The refund command!');
 
 
-$bot->onText('{text}', function (Nutgram $bot, string $text) {
-    $bot->sendMessage("echo: $text");
-});
+//$bot->onText('{text}', function (Nutgram $bot, string $text) {
+//    $bot->sendMessage("echo: $text");
+//});
 
 $bot->fallback(function (Nutgram $bot) {
     $bot->sendMessage('Sorry, i didn\'t get that, try /start');
